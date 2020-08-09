@@ -23,7 +23,7 @@ import java.io.InputStream;
 import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import io.github.cdimascio.dotenv.Dotenv;
 /**
  *
  * @author juanlarriba
@@ -36,7 +36,9 @@ public class Authentication {
     
     public String userToken() {
         Net net = new Net();
-        return net.post(USER_AUTH_URL, authProperties().getProperty("devicetoken"));
+        Dotenv dotenv = Dotenv.load();
+        String deviceToken = dotenv.get("DEVICE_TOKEN");
+        return net.post(USER_AUTH_URL, deviceToken);
     }
     
     private Properties authProperties() {

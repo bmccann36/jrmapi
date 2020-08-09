@@ -40,7 +40,7 @@ import org.apache.logging.log4j.Logger;
 public class Utils {
     
     private static final Logger LOGGER = LogManager.getLogger();
-    public static final String WORKDIR = System.getProperty("user.home") + "/.jrmapi/";
+    public static final String WORKDIR = System.getProperty("user.dir") + "/.jrmapi/";
     private static final int NOT_FOUND = -1;
     public static final char EXTENSION_SEPARATOR = '.';
     
@@ -53,7 +53,7 @@ public class Utils {
             String sourceFile = id + ".content";
             FileOutputStream fos = new FileOutputStream(WORKDIR + "jrmapi.zip");
             ZipOutputStream zipOut = new ZipOutputStream(fos);
-            File fileToZip = new File(sourceFile);
+            File fileToZip = new File(WORKDIR + "/"+ sourceFile);
             FileInputStream fis = new FileInputStream(fileToZip);
             ZipEntry zipEntry = new ZipEntry(fileToZip.getName());
             zipOut.putNextEntry(zipEntry);

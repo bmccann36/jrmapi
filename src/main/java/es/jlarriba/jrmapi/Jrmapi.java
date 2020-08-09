@@ -128,8 +128,12 @@ public class Jrmapi {
         String response = net.put(UPLOAD_REQUEST, userToken, uploadRequest);
         
         List<UploadDocumentResponse> docResponse = gson.fromJson(response, new TypeToken<List<UploadDocumentResponse>>(){}.getType());
+        // utility class creates a zip directory
+        // THEN puts to the blob url a zip file
         net.putStream(docResponse.get(0).getBlobURLPut(), userToken, Utils.createZipDirectory(id));
-        
+
+
+        // last step is to update metadata
         MetadataDocument metadataDoc = new MetadataDocument();
         metadataDoc.setID(id);
         metadataDoc.setModifiedClient(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'+02:00'")));
