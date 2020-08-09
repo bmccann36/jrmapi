@@ -9,7 +9,14 @@ public class Scratch {
         Jrmapi jrmapi = new Jrmapi();
 
 //        jrmapi.createDir("NYT","");
-        jrmapi.listDocs();
+
+//        jrmapi.listDocs();
+
+        // ! DELETING
+//        Document docToDelete = new Document();
+//        docToDelete.setID("f7bb4143-c531-4a3e-af86-2890a931c0ce");
+//        docToDelete.setVersion(1);
+//        jrmapi.deleteEntry(docToDelete);
 
     }
 }

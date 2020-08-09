@@ -9,4 +9,5 @@ module es.jlarriba.jrmapi {
     exports es.jlarriba.jrmapi;
     exports es.jlarriba.jrmapi.model;
     opens es.jlarriba.jrmapi.http to es.jlarriba.jrmapi;
+    opens es.jlarriba.jrmapi.model to com.google.gson;
 }
